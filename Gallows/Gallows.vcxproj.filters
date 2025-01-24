@@ -38,5 +38,8 @@
     <ClInclude Include="Scenes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Store.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

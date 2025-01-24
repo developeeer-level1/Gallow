@@ -8,3 +8,4 @@ using namespace std;
 #include "Scenes.h"
 #include "Analysis.h"
 #include "Gameplay.h"
+#include "Store.h"
