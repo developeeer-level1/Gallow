@@ -285,13 +285,17 @@ void Game(HANDLE hConsole, const CONSOLE_SCREEN_BUFFER_INFO& consoleInfo, int mo
 			amountOfChances--;
 		}
 		if (hghg == word) {
+			Sleep(500);
+			system("cls");
+			cout << "You win!!!!!!";
+			Sleep(1000);
 			victory = !victory;
 		}
 		if (amountOfChances == 0) {
 			Sleep(500);
 			system("cls");
 			cout << "You lose!!!!!!";
-			system("pause");
+			Sleep(1000);
 			victory = !victory;
 		}
 
