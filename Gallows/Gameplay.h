@@ -98,6 +98,9 @@ int CalcutatingWordPosition(string hghg, Alphabeth_Font* gameFont) {
 
 			lenghtWordInCharacters += gameFont->geter()[int(hghg[i]) - 65][0].size();
 		}
+		else if (gameFont->geter().size() < 30) {
+			lenghtWordInCharacters += gameFont->geter()[int(hghg[i]) - 97][0].size();
+		}
 		else {
 			lenghtWordInCharacters += gameFont->geter()[int(hghg[i]) - 71][0].size();
 		}
@@ -122,6 +125,10 @@ void PrintingWord(string hghg, Alphabeth_Font* gameFont, HANDLE hConsole, int wi
 			else if (int(hghg[j]) < 97) {
 				cout << "|";
 				cout << gameFont->geter()[int(hghg[j]) - 65][i];
+			}
+			else if (gameFont->geter().size() < 30) {
+				cout << "|";
+				cout << gameFont->geter()[int(hghg[j]) - 97][i];
 			}
 			else {
 				cout << "|";
@@ -172,11 +179,10 @@ void PrintingKeyboard(Keyboard_Font* keyboard, int chosingLetter, HANDLE hConsol
 	}
 }
 
-void Game(HANDLE hConsole, const CONSOLE_SCREEN_BUFFER_INFO& consoleInfo, int mode) {
+void Game(HANDLE hConsole, const CONSOLE_SCREEN_BUFFER_INFO& consoleInfo, int mode, Alphabeth_Font* gameFont) {
 	int amountOfChances = 6;
 	system("cls");
 
-	Alphabeth_Font* gameFont = new DefaultFont();
 	gameFont->MainFont();
 	Keyboard_Font* keyBoardFont = new BubbleFont();
 	keyBoardFont->KeyboardFont();
@@ -194,6 +200,7 @@ void Game(HANDLE hConsole, const CONSOLE_SCREEN_BUFFER_INFO& consoleInfo, int mo
 
 	int chosingLetter = 0;
 	int consoleWidth = consoleInfo.srWindow.Right - consoleInfo.srWindow.Left;
+
 	while (!victory) {
 		hangman.SetHangmanStage_Printing(amountOfChances, hConsole, consoleWidth);
 		PrintingWord(hghg, gameFont, hConsole, consoleWidth);
