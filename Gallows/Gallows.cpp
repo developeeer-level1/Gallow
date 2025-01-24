@@ -79,7 +79,7 @@ int main()
 			}
 		}
 		else {
-			system("cls");
+			system("cls");//
 			scene->MenuArrMove(arrPoint, hConsole, consoleInfo);
 		}
 	}
